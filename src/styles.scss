@@ -1,3 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Tema personalizado
+@import "styles-theme.scss";
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+  );
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  background-color: #d0d0d0;
+}
+
