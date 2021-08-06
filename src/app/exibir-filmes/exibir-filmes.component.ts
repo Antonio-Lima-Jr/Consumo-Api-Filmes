@@ -1,24 +1,28 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPaginacao } from '../shared/http/interfaceFilme/IPaginacao';
-import { ISearch, ITitle } from '../shared/http/interfaceFilme/ISearch';
+import { ITitle } from '../shared/http/interfaceFilme/ISearch';
 
 @Component({
   selector: 'app-exibir-filmes',
   templateUrl: './exibir-filmes.component.html',
   styleUrls: ['./exibir-filmes.component.scss'],
 })
-export class ExibirFilmesComponent implements OnInit {
+export class ExibirFilmesComponent {
   @Input() resultadoPesquisa: ITitle[] | null = null;
-  @Output('newPage') emiteNewPage = new EventEmitter<number>();
   @Input() pageAtual: IPaginacao | null = null;
   @Input() quantidadePaginas!: number;
 
-  constructor() { }
+  @Output('newPage') emiteNewPage = new EventEmitter<number>();
+  @Output('emiteModalFilme') emiteModalFilme = new EventEmitter<string>();
 
-  ngOnInit(): void { }
+  constructor() { }
 
   emitNewPage(page: number): void {
     this.emiteNewPage.emit(page);
+  }
+
+  chamarModalComponentePai(id: string): void {
+    this.emiteModalFilme.emit(id);
   }
 
   getQuantidadePages(): number[] {

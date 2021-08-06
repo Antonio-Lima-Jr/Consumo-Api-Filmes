@@ -6,6 +6,7 @@
     <div
       class="card col-md-3 mb-5 shadow-lg"
       *ngFor="let title of resultadoPesquisa; index as i"
+      (click)="chamarModalComponentePai(title.imdbID)"
     >
       <img
         class="card-img-top p-2"
