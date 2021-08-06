@@ -1,0 +1,59 @@
+<div
+  class="card-deck justify-content center"
+  *ngIf="resultadoPesquisa !== null"
+>
+  <div class="px-5 row justify-content-md-center">
+    <div
+      class="card col-md-3 mb-5 shadow-lg"
+      *ngFor="let title of resultadoPesquisa; index as i"
+    >
+      <img
+        class="card-img-top p-2"
+        src="{{ title.Poster }}"
+        alt="{{ title.Title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ title.Title }}</h5>
+        <p class="card-text"></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Tipo: {{ title.Type }}</small>
+        <small class="text-muted"> Ano: {{ title.Year }}</small>
+      </div>
+    </div>
+    <ul
+      class="pagination"
+      *ngIf="
+        resultadoPesquisa !== null &&
+        pageAtual !== null &&
+        pageAtual.page > 0 &&
+        pageAtual.page !== undefined &&
+        pageAtual.page !== null
+      "
+    >
+      <li>
+        <a
+          href="#"
+          (click)="emitNewPage(pageAtual.page === 1 ? 1 : pageAtual.page - 1)"
+          >&lt;</a
+        >
+      </li>
+      <li *ngFor="let page of getQuantidadePages(); let i = index">
+        <a href="#" (click)="emitNewPage(i + 1)">{{ i }}</a>
+      </li>
+      <li>
+        <a
+          href="#"
+          (click)="
+            emitNewPage(
+              pageAtual.page !== getQuantidadePages().length
+                ? pageAtual.page + 1
+                : getQuantidadePages().length
+            )
+          "
+          >&gt;</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

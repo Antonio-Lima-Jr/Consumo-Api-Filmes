@@ -1,3 +1,9 @@
 <div class="container height">
   <app-pesquisa-filme (pesquisa)="onPesquisa($event)"></app-pesquisa-filme>
+  <app-exibir-filmes
+    [resultadoPesquisa]="resultadoPesquisa"
+    (newPage)="getNewPage($event)"
+    [quantidadePaginas]="qntDePaginas"
+    [pageAtual]="pesquisaAtual"
+  ></app-exibir-filmes>
 </div>

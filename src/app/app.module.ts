@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PesquisaFilmeComponent } from './pesquisa-filme/pesquisa-filme.component';
+import { ExibirFilmesComponent } from './exibir-filmes/exibir-filmes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PesquisaFilmeComponent
+    PesquisaFilmeComponent,
+    ExibirFilmesComponent
   ],
   imports: [
     BrowserModule,
