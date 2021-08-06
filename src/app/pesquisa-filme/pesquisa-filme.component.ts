@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { IPaginacao } from '../shared/http/interfaceFilme/IPaginacao';
 
 @Component({
   selector: 'app-pesquisa-filme',
@@ -13,6 +14,7 @@ import {
 })
 export class PesquisaFilmeComponent implements OnInit {
   form!: FormGroup;
+  @Output("pesquisa") pesquisaEmissor = new EventEmitter<IPaginacao>();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -28,7 +30,9 @@ export class PesquisaFilmeComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      alert(this.form.controls.pesquisarFilme.value);
+      this.pesquisaEmissor.emit({ pesquisa: this.form.controls.pesquisarFilme.value, page: 1 })
+      this.form.reset();
+
     }
   }
 

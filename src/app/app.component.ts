@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SearchFilmService } from './shared/http/apiFilmeImpl/search-film.service';
+import { IPaginacao } from './shared/http/interfaceFilme/IPaginacao';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private searchFilm: SearchFilmService,) { }
+
+  onPesquisa(event: IPaginacao) {
+    console.log(event);
+    this.searchFilm.list(event.pesquisa, event.page).subscribe(
+      resultado => {
+        console.log(resultado)
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.onTitle();
+  }
+
+  onTitle() {
+    console.log("_____________________________");
+
+    this.searchFilm.getById("full", "tt0056207").subscribe(
+      resultado => {
+        console.log(resultado)
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }
