@@ -1,0 +1,45 @@
+@import "../../styles-theme.scss";
+
+.label-float {
+  position: relative;
+  input {
+    height: 40px;
+    border-radius: 15px;
+    outline: none;
+    min-width: 250px;
+    padding: 10px 10px;
+    font-size: 16px;
+    transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    border: 2px solid $secondary;
+  }
+  input::placeholder {
+    color: transparent;
+  }
+  label {
+    pointer-events: none;
+    position: absolute;
+    bottom: calc(50% - 20px);
+    left: 30px;
+    transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    box-sizing: border-box;
+    color: $primary;
+  }
+  .text-ajuste {
+    bottom: calc(50% - 8px);
+  }
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    font-size: 13px;
+    left: 15px;
+    top: -20px;
+    color: $primary;
+  }
+}
+button {
+  height: 38px;
+  border-radius: 15px;
+}

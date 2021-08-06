@@ -1,0 +1,48 @@
+<div class="row p-4 justify-content-center align-items-center">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
+    <div
+      class="
+        mb-3
+        col-sm-12 col-md-7 col-lg-6
+        offset-lg-2
+        label-float
+        form-group
+      "
+    >
+      <input
+        type="text"
+        class="form-control"
+        id="pesquisarFilme"
+        formControlName="pesquisarFilme"
+        placeholder="Pesquisar"
+        [ngClass]="verificaValidInput('pesquisarFilme')"
+      />
+      <label
+        for="name"
+        class="form-label control-label"
+        [ngClass]="verificaValidLabel('pesquisarFilme')"
+        >Pesquisar Filme</label
+      >
+      <div class="col-sm-12 error" *ngIf="verificaValidTouch('pesquisarFilme')">
+        <small class="text-danger"
+          >Nome de deve ter entre 3 e 50 caracteres</small
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="
+        btn btn-primary
+        col-6
+        offset-3
+        col-sm-5
+        offset-sm-3
+        col-md-3
+        offset-md-1 offset-lg-1
+        col-lg-2
+      "
+    >
+      Pesquisar
+    </button>
+  </form>
+</div>
