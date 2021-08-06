@@ -83,24 +83,24 @@ describe('Teste dos métodos de busca a API', () => {
     subscribe.unsubscribe();
   });
 
-  let esperadoISearch: ISearch[] = [
-    {
-      imdbID: 'tt0056207',
-      Title: 'Maciste contro i cacciatori di teste',
-      Year: 1963,
-      Type: 'movie',
-      Poster:
-        'https://m.media-amazon.com/images/M/MV5BYzNmNWFmNTMtODgwZi00OGRjLTg2ZmItOWU2OTRmZWFiYTAyXkEyXkFqcGdeQXVyMjA5NjIxNDU@._V1_SX300.jpg',
+  let esperadoISearch: ISearch = {
+    Search: [{
+      imdbID: "tt0455317",
+      Title: "Ahora es el tiempo más duro",
+      Year: 2000,
+      Type: "movie",
+      Poster: "N/A"
     },
     {
-      Title: 'Maciste contro i cacciatori di teste',
-      Year: 1963,
-      imdbID: 'tt0056207',
-      Type: 'movie',
-      Poster:
-        'https://m.media-amazon.com/images/M/MV5BYzNmNWFmNTMtODgwZi00OGRjLTg2ZmItOWU2OTRmZWFiYTAyXkEyXkFqcGdeQXVyMjA5NjIxNDU@._V1_SX300.jpg',
-    },
-  ];
+      Title: "Duro y directo",
+      Year: 1999,
+      imdbID: "tt0482135",
+      Type: "series",
+      Poster: "N/A"
+    }],
+    totalResults: 29,
+    Response: true,
+  };
 
   let esperadoIGet: IGetById = {
     Title: 'A Series of Unfortunate Events',
