@@ -32,7 +32,7 @@ export class PesquisaFilmeComponent implements OnInit {
     if (this.form.valid) {
       this.pesquisaEmissor.emit({ pesquisa: this.form.controls.pesquisarFilme.value, page: 1 })
       this.form.reset();
-
+      this.form.markAsPristine()
     }
   }
 
