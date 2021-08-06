@@ -1,4 +1,4 @@
-import { IGetById } from './../interfaceFilme/ITitleFull';
+import { IGetById } from '../interfaceFilme/IGetById';
 import { Injectable } from '@angular/core';
 import { ISearch } from '../interfaceFilme/ISearch';
 import { ApiFilmGeneric } from '../apiFilmGeneric';

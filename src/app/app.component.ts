@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+
 import { SearchFilmService } from './shared/http/apiFilmeImpl/search-film.service';
 import { IPaginacao } from './shared/http/interfaceFilme/IPaginacao';
 
@@ -7,7 +8,7 @@ import { IPaginacao } from './shared/http/interfaceFilme/IPaginacao';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
 
   constructor(private searchFilm: SearchFilmService,) { }
 
@@ -35,5 +36,8 @@ export class AppComponent {
         console.log(error);
       }
     );
+  }
+  ngOnDestroy(): void {
+    // TODO: unsubscribe e retirar o take da generics
   }
 }

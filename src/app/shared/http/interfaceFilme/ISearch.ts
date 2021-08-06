@@ -1,7 +1,7 @@
 export interface ISearch {
   imdbID: string;
-  title: string;
-  year: number;
-  type: string;
-  poster: string;
+  Title: string;
+  Year: number;
+  Type: string;
+  Poster: string;
 }

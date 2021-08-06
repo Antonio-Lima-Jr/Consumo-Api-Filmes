@@ -1,6 +1,6 @@
 export interface IGetById {
   imdbID: string;
-  title: string;
+  Title: string;
   Year: number;
   Rated: string;
   Released: string;

@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PesquisaFilmeComponent } from './pesquisa-filme/pesquisa-filme.component';
-import { SearchFilmService } from './shared/http/apiFilmeImpl/search-film.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,7 @@ import { SearchFilmService } from './shared/http/apiFilmeImpl/search-film.servic
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SearchFilmService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
